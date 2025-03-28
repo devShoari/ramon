@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import MusicPlayer from "@/components/MusicPlayer";
+import Navbar from "@/components/Navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,31 +14,29 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ramonote | Unsent Messages",
+  title: "Mohammad Omidinia | Project Manager",
   description:
-    "A safe space for expressing feelings to those you've lost touch with",
+    "Professional project manager specializing in web development projects",
   keywords: [
-    "unsent messages",
-    "lost connections",
-    "anonymous messages",
-    "digital diary",
+    "project manager",
+    "web development",
+    "frontend development",
+    "project management",
   ],
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
       >
-        <Header />
+        <Navbar />
         <main className="flex-grow">{children}</main>
-        <MusicPlayer />
-        <Footer />
       </body>
     </html>
   );
