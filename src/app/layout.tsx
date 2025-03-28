@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Caveat } from "next/font/google";
+import { ThemeProvider } from "./contexts/ThemeContext";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import BackToTop from "@/components/BackToTop";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,16 +14,15 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const caveat = Caveat({
+  subsets: ["latin"],
+  variable: "--font-caveat",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  title: "Mohammad Omidinia | Project Manager",
-  description:
-    "Professional project manager specializing in web development projects",
-  keywords: [
-    "project manager",
-    "web development",
-    "frontend development",
-    "project management",
-  ],
+  title: "Dashboard",
+  description: "A sleek, iOS-inspired dashboard",
 };
 
 export default function RootLayout({
@@ -34,11 +33,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
+        className={`${geistSans.variable} ${geistMono.variable} ${caveat.variable} antialiased`}
       >
-        <Navbar />
-        <main className="flex-grow">{children}</main>
-        <BackToTop />
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );
