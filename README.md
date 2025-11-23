@@ -1,6 +1,6 @@
 # Ramon
 
-A modern chrome extension built with Next.js and TypeScript.
+A modern chrome new tab extension built with Next.js and TypeScript.
 
 ## 🧰 Project Overview
 
